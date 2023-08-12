@@ -1,7 +1,9 @@
 # NetWorth
 
 ##Description
-NetWorth" is a web application designed to assist users in managing and tracking the value of their assets over time. Users can input detailed information about their products, including purchase prices and purchase years. Through a comprehensive analysis, the application calculates the products' depreciation rates, estimating their current values. 
+
+
+"NetWorth" is a web application designed to assist users in managing and tracking the value of their assets over time. Users can input detailed information about their products, including purchase prices and purchase years. Through a comprehensive analysis, the application calculates the products' depreciation rates, estimating their current values. 
 
 Incorporating a background check, NetWorth ensures the accuracy of its calculations. The app features integration with a third-party API that supplies users with daily motivation and valuable tips aimed at preserving and maximizing their products' values while actively using them.
 
