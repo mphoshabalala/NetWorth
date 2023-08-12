@@ -1,0 +1,266 @@
+* {
+  margin: 0;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  box-sizing: border-box;
+  transition: all ease-in-out 0.2s;
+}
+
+ul {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+  color: rgb(255, 255, 255);
+}
+
+.hero {
+  height: 100vh;
+  background: url("../Resources/landing\ page.png") center/cover no-repeat;
+  width: 100vw;
+  position: relative;
+}
+
+header {
+  display: flex;
+  align-items: center;
+  padding: 2rem;
+  position: absolute;
+  width: 100%;
+  top: 0;
+  left: 0;
+}
+
+.AditionalFeatures {
+  display: flex;
+  margin-left: auto;
+}
+
+.AditionalFeatures > li {
+  padding-left: 1.5rem;
+}
+
+header > ul > li > a {
+  font-weight: bold;
+}
+
+header > ul > li > a:hover {
+  color: #fd783c;
+  transition: ease 0.3s all;
+}
+
+/* hero content */
+.hero-content {
+  position: absolute;
+  top: 40vh;
+  left: 30vw;
+}
+
+.hero-content > h1 {
+  font-size: 4rem;
+  color: #fff;
+}
+
+.hero-content > .get-form {
+  border: 1px solid #fd783c;
+  padding: 0.5rem 1rem;
+  background-color: #174c4f;
+  font-size: 1rem;
+  font-weight: bold;
+  color: #fff;
+  cursor: pointer;
+}
+
+.hero-content > .get-form:hover {
+  border: none;
+  padding: 0.5rem 1rem;
+  background-color: #fd783c;
+  font-size: 1rem;
+  font-weight: bold;
+  color: #fff;
+  cursor: pointer;
+  transition: ease 0.3s all;
+}
+
+/* login */
+
+.loginPage {
+  width: 50vw;
+  height: fit-content;
+  border: 1px solid grey;
+  border-radius: 5px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #fff;
+  padding: 2rem;
+}
+
+.loginPage > form > div {
+  margin: 1.5rem 0;
+  display: flex;
+  flex-direction: column;
+}
+
+.calculator {
+  width: 80vw;
+  height: fit-content;
+  border: 1px solid grey;
+  border-radius: 5px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #fff;
+  padding: 2rem;
+}
+
+.calc-container,
+.assets-container {
+  position: absolute;
+  background-color: rgba(0, 0, 0, 0.6);
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 10;
+  top: 0;
+}
+
+form {
+  width: 100%;
+  padding: 2rem;
+}
+
+input {
+  padding: 0.3rem;
+  font-size: 1.1rem;
+  color: rgb(46, 46, 46);
+}
+
+label {
+  font-size: 1.1rem;
+  margin-bottom: 0.5rem;
+}
+
+.calculator > form > div {
+  margin: 1.5rem 0;
+  display: flex;
+  flex-direction: column;
+}
+
+#cancel {
+  margin-left: auto;
+  font-size: 1.5rem;
+}
+
+.btn-secondary {
+  padding: 0.5rem 1rem;
+  background-color: #fd783c;
+  border: none;
+  color: #fff;
+  border-radius: 3px;
+  cursor: pointer;
+}
+
+/* item */
+
+.instructions {
+  color: red;
+}
+
+.bold {
+  font-weight: bolder;
+}
+
+.item {
+  margin: 2rem;
+  width: 100%;
+  background-color: #ffa880;
+  color: #174c4f;
+  display: flex;
+  justify-content: space-between;
+}
+
+.item-description {
+  font-weight: bolder;
+  font-size: 1.2rem;
+  color: black;
+  display: flex;
+  justify-content: space-between;
+  width: 80%;
+  padding: 1rem;
+}
+
+.item-add,
+.item-del {
+  font-size: 1.5rem;
+  width: 10%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+.item-add {
+  background-color: #174c4f;
+}
+
+.item-del {
+  background-color: #fd783c;
+}
+
+.delete-item-icon {
+  font-weight: bold;
+}
+
+.item-add:hover {
+  background-color: rgba(23, 76, 79, 0.6);
+}
+
+.item-del:hover {
+  background-color: rgba(253, 120, 60, 0.6);
+}
+
+/* Assets */
+
+.assets {
+  width: 90vw;
+  max-height: 90vh;
+  border: 1px solid grey;
+  border-radius: 5px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #fff;
+  padding: 2rem;
+  overflow-y: auto;
+}
+
+.assets > ul {
+  width: 100%;
+}
+
+.assets-li {
+  width: 100%;
+  border: rgba(23, 76, 79, 0.7) 0.5px solid;
+  background-color: rgba(23, 76, 79, 0.6);
+  margin-bottom: 1rem;
+  padding: 1rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.asset {
+  display: flex;
+  justify-content: space-between;
+  width: 90%;
+}
+
+.delete-item {
+  background-color: #fd783c;
+  padding: 0.5rem;
+  border-radius: 3px;
+  margin-left: 1rem;
+}
