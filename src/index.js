@@ -8,8 +8,8 @@ class Calculator {
   ) {
     this.item_name = item_name;
     this.item_price = item_price;
-    (this.year_of_purchase = year_of_purchase),
-      (this.depreciation_percentage = depreciation_percentage);
+    this.year_of_purchase = year_of_purchase;
+    this.depreciation_percentage = depreciation_percentage;
   }
 
   getItemName() {
@@ -34,7 +34,7 @@ class Calculator {
   }
 }
 
-const button = document.querySelector(".get-form");
+const calculateWorth = document.querySelector(".get-form");
 const body = document.querySelector("body");
 const category = document.querySelector("#category");
 
@@ -46,13 +46,18 @@ if (existingData !== null) {
     AddedItems.push(data);
   });
 }
-let calculatorClone;
-if (button) {
-  button.addEventListener("click", (e) => {
-    const myDiv = document.createElement("div");
-    myDiv.innerHTML = displayItemForm();
-    myDiv.classList.add("calc-container");
-    body.appendChild(myDiv);
+
+if (calculateWorth) {
+  calculateWorth.addEventListener("click", (e) => {
+    // create item form and append to body
+    const ItemForm = createNewElementWithInnerHTML(
+      "div",
+      "calc-container",
+      displayItemForm()
+    );
+    body.appendChild(ItemForm);
+
+    // update the local storage with values from the input form
     const add_item = document.querySelector("#add-item");
     const calculator_div = document.querySelector(".calculator");
     if (add_item) {
@@ -137,8 +142,8 @@ if (button) {
           instruction.style.display = "none";
           add_item.disabled = false;
           add_item.style.cssText = `
-                      background-color: rgb(253, 120, 60);
-                  `;
+            background-color: rgb(253, 120, 60);
+          `;
         });
 
         deleteItem.addEventListener("click", (e) => {
@@ -154,15 +159,17 @@ if (button) {
   });
 }
 
+//get access to assets
 const assets = document.querySelector(".get-assets");
 if (assets) {
   assets.addEventListener("click", () => {
+    //create assets's outer container
     const assetsOuterContainer = createNewElement("div", "assets-container");
     const assetsInnerContainer = createNewElement("div", "assets");
     const itemList = createNewElement("ul", "items-list");
-
     const AssetsInLocalStorage =
       JSON.parse(localStorage.getItem("Assets")) || [];
+    let totalWorth = 0;
     if (AssetsInLocalStorage.length !== 0) {
       AssetsInLocalStorage.forEach((item) => {
         const newItem = createNewElementWithInnerHTML(
@@ -173,18 +180,59 @@ if (assets) {
               <p class="asset-burrent-worth">${item.currentWorth}</p>
             </div>
             <a href="#" class="delete-item">
-              <i class="fa-solid fa-xmark" style="color: #050505"></i>
+              <i class="fa-regular fa-trash-can " style="color: #050505"></i>
             </a>`
         );
+        let itemPrice = item.currentWorth.toString();
+        itemPrice = itemPrice.trim();
+        totalWorth += parseInt(itemPrice, 10);
         itemList.append(newItem);
       });
     }
 
-    assetsInnerContainer.append(itemList);
+    const totalWorthDiv = createNewElementWithInnerHTML(
+      "p",
+      "total-worth",
+      `Your Total Worth: <span class="total">R${totalWorth}.00</span> `
+    );
+    const cancelSign = createNewElementWithInnerHTML(
+      "div",
+      "cancel-assets-container",
+      `<i class="fa-solid fa-xmark" style="color: #050505"></i>`
+    );
+    if (cancelSign) {
+      cancelSign.addEventListener("click", (e) => {
+        assetsOuterContainer.style.display = "none";
+      });
+    }
+    assetsInnerContainer.append(cancelSign, totalWorthDiv, itemList);
     assetsOuterContainer.append(assetsInnerContainer);
 
     body.append(assetsOuterContainer);
   });
+}
+
+// get daily motivation
+const todayMotivation = document.querySelector(".todays-motivation");
+if (todayMotivation) {
+  //fetch daily motivation from freecodecamp free api
+  fetch("https://type.fit/api/quotes")
+    .then((res) => {
+      return res.json();
+    })
+    .then((data) => {
+      const randomIndex = getRandomNumber(1, data.length - 1);
+      const innerElement = createNewElementWithInnerHTML(
+        "p",
+        "inner-element",
+        `<div>
+          <p>${data[randomIndex].text}</p>
+          <p class="motivation-author">-${data[randomIndex].author}</p>
+      </div>`
+      );
+
+      todayMotivation.append(innerElement);
+    });
 }
 
 //utilities
@@ -249,4 +297,8 @@ const createNewElementWithInnerHTML = (element, className, innerHTML) => {
   newElement.classList.add(className);
   newElement.innerHTML = innerHTML;
   return newElement;
+};
+
+const getRandomNumber = (min, max) => {
+  return Math.floor(Math.random() * (max - min + 1)) + min;
 };

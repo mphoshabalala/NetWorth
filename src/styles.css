@@ -44,7 +44,8 @@ header > ul > li > a {
   font-weight: bold;
 }
 
-header > ul > li > a:hover {
+header > ul > li > a:hover,
+.home-link:hover {
   color: #fd783c;
   transition: ease 0.3s all;
 }
@@ -104,7 +105,7 @@ header > ul > li > a:hover {
 
 .calculator {
   width: 80vw;
-  height: fit-content;
+  height: 70vh;
   border: 1px solid grey;
   border-radius: 5px;
   display: flex;
@@ -112,6 +113,7 @@ header > ul > li > a:hover {
   align-items: center;
   background-color: #fff;
   padding: 2rem;
+  overflow-y: auto;
 }
 
 .calc-container,
@@ -224,6 +226,27 @@ label {
 
 /* Assets */
 
+.cancel-assets-container {
+  margin-left: auto;
+  margin-bottom: 2rem;
+  font-size: 1.5rem;
+  cursor: pointer;
+}
+
+.total-worth {
+  margin-left: auto;
+  font-size: 1rem;
+  font-weight: bold;
+  margin-bottom: 1rem;
+}
+
+.total {
+  background-color: rgba(76, 235, 97, 0.6);
+  border: 1px solid #4bb659;
+  padding: 0.5rem;
+  border-radius: 5px;
+}
+
 .assets {
   width: 90vw;
   max-height: 90vh;
@@ -243,8 +266,10 @@ label {
 
 .assets-li {
   width: 100%;
-  border: rgba(23, 76, 79, 0.7) 0.5px solid;
-  background-color: rgba(23, 76, 79, 0.6);
+  /* border: rgba(23, 76, 79, 0.7) 0.5px solid; */
+  border-radius: 5px;
+  /* box-shadow: 0px 4px 6px rgba(23, 76, 79, 0.7); */
+  background-color: rgba(23, 76, 79, 0.3);
   margin-bottom: 1rem;
   padding: 1rem;
   display: flex;
@@ -256,6 +281,7 @@ label {
   display: flex;
   justify-content: space-between;
   width: 90%;
+  font-weight: bold;
 }
 
 .delete-item {
@@ -263,4 +289,28 @@ label {
   padding: 0.5rem;
   border-radius: 3px;
   margin-left: 1rem;
+}
+
+/* Motivation */
+
+.motivation {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.todays-motivation {
+  background-color: white;
+  padding: 2rem;
+  border-radius: 5px;
+}
+
+.motivation-author {
+  font-weight: bold;
+}
+
+.home-link {
+  font-weight: bold;
+  margin-bottom: 2rem;
 }
